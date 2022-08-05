@@ -1,18 +1,23 @@
-import styled from "styled-components";
+import styled, { css, ThemeConsumer, useTheme } from "styled-components";
 
-export const CardContainer = styled.div`
+interface CardContainerProps {
+  background: string | undefined,
+  border: string | undefined
+}
+
+export const CardContainer = styled.div<CardContainerProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   padding: 1.5rem 1rem;
-  background-color: var(--green-100);
+  background-color: ${props => props.background};
 
   width: 17rem;
   height: 25rem;
 
   border-radius: 16px;
-  border: 3px solid var(--green-500);
+  border: 3px solid ${props => props.border};
 
   transition: transform 0.4s;
 
@@ -20,8 +25,11 @@ export const CardContainer = styled.div`
     transform: scale(1.025);
   }
 `
+interface Type {
+  type: string | undefined
+}
 
-export const CardHeader = styled.div`
+export const CardHeader = styled.div<Type>`
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -29,7 +37,7 @@ export const CardHeader = styled.div`
   p {
     font-family: 'Alfa Slab One';
     font-size: 1.5rem;
-    color: var(--gray-700);
+    color: ${(props) => props.type === 'dark' ? props.theme.white : props.theme.gray};
   }
 `
 
@@ -49,13 +57,22 @@ export const PokePhoto = styled.div`
   }
 `
 
-export const PokeTypes = styled.div`
+interface TypesProp {
+  color1: string | undefined,
+  color2: string | undefined,
+}
+
+export const PokeTypes = styled.div<TypesProp>`
   display: flex;
   justify-content: center;
   align-items: center ;
 
   height: 2.5rem;
   border-radius: 5rem;
-  
-  background-image: linear-gradient(to right, var(--green-500) , var(--purple-500));
+
+  background-image: linear-gradient(
+    to right,  
+    ${props => props.color1}, 
+    ${props => props.color2}
+  );
 `

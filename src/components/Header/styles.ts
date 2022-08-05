@@ -5,7 +5,7 @@ export const HeaderContainer = styled.div`
   
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, .15);
+  background-color: rgba(0, 0, 0, .35);
   
   backdrop-filter: blur(2.5px);
 

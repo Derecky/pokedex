@@ -12,7 +12,7 @@ export function Home () {
   useEffect(() => {
     axios({
       method: "get",
-      url: 'https://pokeapi.co/api/v2/pokemon?limit=150'
+      url: 'https://pokeapi.co/api/v2/pokemon?limit=300'
     }).then(response => {
       setPokemons(response?.data.results)
     })

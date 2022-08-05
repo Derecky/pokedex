@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
+import Backgroung from '../assets/background.png';
+
 export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -8,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    /* background-color: #fff; */
+    background-image: url(${Backgroung});
     background-color: var(--background-500);
     color: #fff;
     -webkit-font-smoothing: antialiased;
